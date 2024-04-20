@@ -5,10 +5,10 @@
     "check_style": true,
     "pedantic": true,
     "version": "0.0.1",
-    "year": 2015,
-    "author": "First Last",
-    "email": "{{ cookiecutter.author.split()|join('.')|lower }}@gmail.com",
-    "username": "{{ cookiecutter.author|first|lower }}{{ cookiecutter.author.split()|last|lower }}",
-    "branch": "master",
+    "year": 2024,
+    "author": "Mohammad Mohsen",
+    "email": "kuro.ece@gmail.com",
+    "username": "ece-mohammad",
+    "branch": "main",
     "remote": "origin"
 }

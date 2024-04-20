@@ -11,10 +11,11 @@ set(PROJECT_VERSION_MINOR "{{ cookiecutter.version.split('.')[1] }}")
 set(PROJECT_VERSION_PATCH "{{ cookiecutter.version.split('.')[2] }}")
 
 # Build flags
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Og -g3 -march=native")
 {% if cookiecutter.pedantic -%}
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
 {%- endif %}
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 
 # ---------------------------------------------------------

@@ -1,27 +1,38 @@
+BUILD_DIR=cmake_build
+
+LIB_DIR=lib
+
 # Build all targets
-all: configure
-	@ make -C build
+all: test
+
+test: build
+	@cmake --build $(BUILD_DIR) --target test
 
 # Build the documentation (Doxygen)
 doc: configure
-	@ make doc -C build
+	@cmake --build $(BUILD_DIR) --target doc
 
 # Build all targets and run the test suite
-test: configure
-	@ make {{ cookiecutter.project_name }}_test -C build
-	@ make test -C build
 
-# Build and install all targets
-install: all
-	@ make install -C build
+build: configure
+	@cmake --build $(BUILD_DIR) --target all
+
+install: build
+	@cmake --build $(BUILD_DIR) --target install
 
 # Configure the targets (CMake)
-configure:
-	@ cd build && cmake ..
+configure: $(BUILD_DIR) $(LIB_DIR)
+	@cmake -S . -B $(BUILD_DIR) -G Ninja -DCMAKE_INSTALL_PREFIX=$(LIB_DIR) -DCMAKE_CXX_COMPILER_LAUNCHER=ccache --fresh
+
+$(BUILD_DIR):
+	mkdir -p $@
+
+$(LIB_DIR):
+	mkdir -p $@
 
 # Clean the build directory
 clean:
-	@ rm -rf build && mkdir build
+	@rm -rf $(BUILD_DIR)
 
 # Format all h,hpp,c,cpp,cxx files under version control inplace
 format:
@@ -37,3 +48,4 @@ check-format:
 	    grep -E "\.(c|h|cpp|hpp|cxx)$$" | \
 	    xargs -n1 clang-format -output-replacements-xml | \
 	    grep "<replacement " > /dev/null
+

@@ -1,0 +1,31 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 23,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "DebugConfig",
+      "displayName": "GCC 12.2.0 x86_64-linux-gnu",
+      "description": "Using CCache & Ninja",
+      "binaryDir": "${sourceDir}/cmake_build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_COMPILER_LAUNCHER": "/usr/local/bin/ccache",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/lib"
+      },
+      "generator": "Ninja"
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "DefaultBuild",
+      "description": "",
+      "displayName": "",
+      "configurePreset": "DebugConfig",
+      "cleanFirst": true
+    }
+  ]
+}
