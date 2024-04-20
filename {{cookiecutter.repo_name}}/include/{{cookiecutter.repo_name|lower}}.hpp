@@ -7,9 +7,9 @@
  * @copyright {{cookiecutter.year}}
  *****************************************************************************/
  
- #ifndef __{{cookiecutter.repo_name|upper}}__
- #define __{{cookiecutter.repo_name|upper}}__
- 
- 
- 
- #endif /* __{{cookiecutter.repo_name|upper}}__ */
+#ifndef __{{cookiecutter.repo_name|upper}}__
+#define __{{cookiecutter.repo_name|upper}}__
+
+
+
+#endif /* __{{cookiecutter.repo_name|upper}}__ */
