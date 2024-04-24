@@ -21,9 +21,13 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # ---------------------------------------------------------
 # Features
 # ---------------------------------------------------------
-add_subdirectory(external)
 add_subdirectory(src)
+add_subdirectory(external)
+
+if(${CMAKE_PROJECT_NAME} STREQUAL ${PROJECT_NAME})
 
 enable_testing()
 add_subdirectory(test)
 add_subdirectory(doc)
+
+endif()
