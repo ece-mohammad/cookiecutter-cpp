@@ -41,7 +41,7 @@ make clean
 1. Add as a submodule
 
 ```
-git submodule add {{cookiecutter.repo}} \[path to submodule\]
+git submodule add {{cookiecutter.repo_name}} \[path to submodule\]
 ```
 
 2. In your CMakeLists.txt:
